@@ -12,7 +12,7 @@ class CommandLogger implements CommandListener {
   public synchronized void commandSucceeded(final CommandSucceededEvent event) {
     System.out.println(
       String.format(
-        "COMMAND SUCCEEDED: %s %s",
+        "COMMAND SUCCEEDED: %s %s ms",
         event.getCommandName(),
         event.getElapsedTime(TimeUnit.MILLISECONDS)
       )
@@ -23,7 +23,7 @@ class CommandLogger implements CommandListener {
   public void commandFailed(final CommandFailedEvent event) {
     System.out.println(
       String.format(
-        "COMMAND FAILED: %s %s",
+        "COMMAND FAILED: %s %s ms",
         event.getCommandName(),
         event.getElapsedTime(TimeUnit.MILLISECONDS)
       )

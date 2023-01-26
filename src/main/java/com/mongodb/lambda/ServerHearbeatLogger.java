@@ -9,7 +9,7 @@ import com.mongodb.event.ServerMonitorListener;
 class ServerHeartbeatLogger implements ServerMonitorListener {
 
   @Override
-  public synchronized void serverHeartbeatSucceeded(final ServerHeartbeatSucceededEvent event) {
+  public void serverHeartbeatSucceeded(final ServerHeartbeatSucceededEvent event) {
     System.out.println(
       String.format(
         "HEARTBEAT SUCCEEDED: %s %s",
