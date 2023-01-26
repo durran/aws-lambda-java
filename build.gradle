@@ -1,0 +1,24 @@
+plugins {
+  id 'com.github.johnrengelman.shadow' version '7.1.2'
+  id 'java'
+}
+
+group 'com.mongodb.lambda'
+version = '0.0.1'
+sourceCompatibility = 1.11
+
+shadowJar {
+  manifest {
+    attributes 'Main-Class': 'com.mongodb.lambda.LambdaController'
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'com.amazonaws:aws-lambda-java-core:1.2.0'
+  implementation 'org.mongodb:mongodb-driver-sync:4.8.2'
+  implementation 'org.slf4j:slf4j-api:1.7.6'
+}
