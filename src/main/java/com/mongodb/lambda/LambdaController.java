@@ -15,12 +15,12 @@ import com.mongodb.client.model.Filters;
 import com.mongodb.client.result.InsertOneResult;
 
 public class LambdaController implements RequestHandler {
-  static MongoClient client;
-  static MongoClientSettings settings;
-  static MongoDatabase database;
-  static MongoCollection<Document> collection;
+  private MongoClient client;
+  private MongoClientSettings settings;
+  private MongoDatabase database;
+  private MongoCollection<Document> collection;
 
-  static {
+  public LambdaController() {
     settings = MongoClientSettings
       .builder()
       .applicationName("AWS Lambda Java Driver Test")
@@ -32,13 +32,7 @@ public class LambdaController implements RequestHandler {
     client = MongoClients.create(settings);
     database = client.getDatabase("test");
     collection = database.getCollection("test");
-
-    // Force a connection into the pool.
-    // database.runCommand(new Document("ping", 1));
-  }
-
-  public LambdaController() {
-    System.out.println("in constructor");
+    database.runCommand(new Document("ping", 1));
   }
 
   @Override
