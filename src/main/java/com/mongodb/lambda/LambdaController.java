@@ -34,7 +34,11 @@ public class LambdaController implements RequestHandler {
     collection = database.getCollection("test");
 
     // Force a connection into the pool.
-    database.runCommand(new Document("ping", 1));
+    // database.runCommand(new Document("ping", 1));
+  }
+
+  public LambdaController() {
+    System.out.println("in constructor");
   }
 
   @Override
